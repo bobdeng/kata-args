@@ -1,13 +1,11 @@
 
 public class ArgType<T> {
-    char name;
-    Class<T> type;
-    T defaultValue;
+    ArgName name;
+    ArgTypeDefine<T> type;
 
     public ArgType(char name, Class<T> type, T defaultValue) {
-        this.name = name;
-        this.type = type;
-        this.defaultValue = defaultValue;
+        this.name = new ArgName(name);
+        this.type = ArgTypeDefine.of(type,defaultValue);
     }
 
     public static <T> ArgType<T> of(char name, Class<T> clz, T defaultValue) {
@@ -15,14 +13,14 @@ public class ArgType<T> {
     }
 
     public boolean is(char name) {
-        return this.name==name;
+        return this.name.is(name);
     }
 
-    public <T> T parse(String argStr) {
-        if (argStr == null) {
-            return (T) defaultValue;
+    public <T> T parse(ArgValue argValue) {
+        if (argValue == null) {
+            return (T) type.getDefaultValue();
         }
-        ArgConverter argConverter = ArgConvertersFactory.getArgConverter(type);
-        return (T) argConverter.fromString(argStr);
+        ArgConverter argConverter = type.getArgConverter();
+        return (T) argConverter.fromString(argValue.value);
     }
 }

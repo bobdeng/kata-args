@@ -21,11 +21,11 @@ public class ArgParser {
 
     public <T> T getArg(char name) {
         ArgType<T> argType = schema.getArg(name).orElse(null);
-        T value = argType.parse(getArgString(name));
+        T value = argType.parse(getArgValue(name));
         return value;
     }
 
-    private String getArgString(char name) {
-        return commandArgs.getArg(String.valueOf(name));
+    private ArgValue getArgValue(char name) {
+        return commandArgs.getArg(name);
     }
 }
