@@ -22,23 +22,27 @@ public class Args {
     }
 
     private void parseArgs(String[] values) {
-        for (int i = 0; i < values.length; i++) {
-            ArgName argName = ArgName.of(values[i]);
-            ArgValue argValue = null;
-            if (argName != null) {
-                if (i + 1 < values.length) {
-                    argValue = ArgValue.of(values[i + 1]);
-                    if (argValue != null) {
-                        i++;
-                    } else {
-                        argValue = new ArgValue(null);
-                    }
-                } else {
-                    argValue = new ArgValue(null);
-                }
-                args.put(argName, argValue);
-            }
+        ArgValues argValues = new ArgValues(values);
+        while (argValues.hasNext()) {
+            parseNameValues(argValues);
         }
+
+    }
+
+    private void parseNameValues(ArgValues argValues) {
+        ArgName argName = argValues.getNextName();
+        if (argName != null) {
+            ArgValue argValue = getArgValue(argValues);
+            args.put(argName, argValue);
+        }
+    }
+
+    private ArgValue getArgValue(ArgValues argValues) {
+        ArgValue argValue = argValues.getArgValue();
+        if (argValue == null) {
+            argValue = new ArgValue(null);
+        }
+        return argValue;
     }
 
     public String get(char name) {
