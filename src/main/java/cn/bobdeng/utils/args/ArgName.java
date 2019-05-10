@@ -10,12 +10,11 @@ public class ArgName {
     }
 
     public static ArgName of(String value) {
-        if (value.length() != 2) return null;
-        if (value.charAt(0) != '-') return null;
-        if(value.charAt(1)>='0' && value.charAt(1)<='9'){
-            return null;
+        if (value.matches("\\-[a-zA-Z]")) {
+            return new ArgName(value.charAt(1));
         }
-        return new ArgName(value.charAt(1));
+        return null;
+
     }
 
     @Override
