@@ -38,11 +38,7 @@ public class Args {
     }
 
     private ArgValue getArgValue(ArgValues argValues) {
-        ArgValue argValue = argValues.getArgValue();
-        if (argValue == null) {
-            argValue = new ArgValue(null);
-        }
-        return argValue;
+        return argValues.getArgValue(()->new ArgValue(null));
     }
 
     public String get(char name) {

@@ -1,5 +1,7 @@
 package cn.bobdeng.utils.args;
 
+import java.util.function.Supplier;
+
 public class ArgValues {
     String[] values;
     int index;
@@ -30,9 +32,9 @@ public class ArgValues {
         return values[index];
     }
 
-    public ArgValue getArgValue() {
+    public ArgValue getArgValue(Supplier<ArgValue> defaultValue) {
         if (!hasNext() || isArgName()) {
-            return null;
+            return defaultValue.get();
         }
         return ArgValue.of(getValue());
     }
