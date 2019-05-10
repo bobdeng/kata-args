@@ -1,6 +1,0 @@
-
-8squid:S1220""Move this file to a named package.8¶É€Þ©-
-^squid:UselessImportCheck".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8Æ›±ß©-
-€squid:S1488"]Immediately return this expression instead of assigning it to the temporary variable "value".(žÕÌ¾ýÿÿÿÿ8Á¼—Þ©-
-hsquid:S2259"EA "NullPointerException" could be thrown; "argType" is nullable here.(žÕÌ¾ýÿÿÿÿ8ÝÜ‹á©-
-Zsquid:UselessImportCheck"*Remove this unused import 'java.util.Map'.(¼è½Òþÿÿÿÿ8¹„°ß©-

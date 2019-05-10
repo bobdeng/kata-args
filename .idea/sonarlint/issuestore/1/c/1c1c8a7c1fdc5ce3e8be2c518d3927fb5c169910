@@ -1,13 +1,0 @@
-
-8squid:S1220""Move this file to a named package.8ŸƒŞ©-
-rsquid:S00100A"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É³ˆÄøÿÿÿÿ8«æËŞ©-
-msquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î³õî8şÄŞ©-
-dsquid:S1192'"FDefine a constant instead of duplicating this literal "hello" 3 times.(Ş°Ÿ8Õ¹Ş©-
-rsquid:S00100&"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(š÷»Õıÿÿÿÿ8îİ™Ş©-
-msquid:S00100S"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒè©¢8»ÂëŞ©-
-msquid:S00100
-"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•Ê”É8Â·ŠŞ©-
-msquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â†×¥8•ÆÏŞ©-
-rsquid:S001000"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùÚŒıúÿÿÿÿ8Õ¹Ş©-
-msquid:S001009"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à‰ô·8œ²ÈŞ©-
-msquid:S00100J"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(šÎñ8°Õß©-
