@@ -25,10 +25,14 @@ public class Args {
         for (int i = 0; i < values.length; i++) {
             ArgName argName = ArgName.of(values[i]);
             ArgValue argValue = null;
-            if (argName != null && i + 1 < values.length) {
-                argValue = ArgValue.of(values[i + 1]);
-                if (argValue != null) {
-                    i++;
+            if (argName != null) {
+                if (i + 1 < values.length) {
+                    argValue = ArgValue.of(values[i + 1]);
+                    if (argValue != null) {
+                        i++;
+                    } else {
+                        argValue = new ArgValue(null);
+                    }
                 } else {
                     argValue = new ArgValue(null);
                 }
