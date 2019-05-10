@@ -12,22 +12,17 @@ public class Schema<T> {
     }
 
     public static <T> Schema<T> of(char name, Class<T> clz, T defaultValue) {
-        return new Schema<>(name,clz,defaultValue);
+        return new Schema<>(name, clz, defaultValue);
     }
 
-    public Object getValue(String value) {
-        if(value==null){
+    public Object getValue(String value){
+        if (value == null) {
             return defaultValue;
         }
-        if(clz==Boolean.class){
-            return "true".equalsIgnoreCase(value);
-        }
-        if(clz==String.class){
-            return value;
-        }
-        if(clz==Integer.class){
-            return new Integer(value);
-        }
-        return null;
+        return ValueConverterFactory.parseObject(value, clz);
+    }
+
+    public boolean is(char name) {
+        return this.name==name;
     }
 }

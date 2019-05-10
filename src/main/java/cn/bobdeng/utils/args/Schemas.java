@@ -1,5 +1,8 @@
 package cn.bobdeng.utils.args;
 
+import java.util.Optional;
+import java.util.stream.Stream;
+
 public class Schemas {
     Schema[] schemas;
 
@@ -11,12 +14,15 @@ public class Schemas {
         return new Schemas(schemas);
     }
 
-    public <T>T getArgValue(char name, String value,Class<T> clz) {
-        for(int i=0;i<schemas.length;i++){
-            if(schemas[i].name==name){
-                return (T)schemas[i].getValue(value);
-            }
-        }
-        return null;
+    public <T> T getArgValue(char name, String value, Class<T> clz) {
+        return (T) findByName(name)
+                .map(schema -> schema.getValue(value))
+                .orElse(null);
+    }
+
+    Optional<Schema> findByName(char name) {
+        return Stream.of(schemas)
+                .filter(schema -> schema.is(name))
+                .findFirst();
     }
 }
